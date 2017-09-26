@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Hello from '@/components/Hello'
+
+import OnosHelper from '@/components/layout-content/onos-helper'
+import DevHelper from '@/components/layout-content/dev-helper'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      component: Hello
+      path: '/onos-helper',
+      component: OnosHelper
+    },
+    {
+      path: '/dev-helper',
+      component: DevHelper
     }
   ]
 })

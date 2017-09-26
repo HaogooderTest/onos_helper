@@ -2,18 +2,26 @@
 <div class="layout-header">
   <Menu mode="horizontal" theme="primary" active-name="1">
     <Row  :gutter="0">
+      <!-- Logo -->
       <Col span="4">
         <div class="layout-logo">logo</div>
       </Col>
-      <Col span="20">
+      <!-- nav -->
+      <Col span="18">
+
         <MenuItem name="1">
-          <Icon type="ios-navigate"></Icon>
-          导航一
+          <router-link to="/onos-helper" tag="div">
+            <Icon type="ios-navigate"></Icon>
+            ONOS小助手
+          </router-link>
         </MenuItem>
         <MenuItem name="2">
-          <Icon type="ios-keypad"></Icon>
-          导航二
+          <router-link to="/dev-helper"  tag="div">
+            <Icon type="ios-keypad"></Icon>
+            设备小助手
+          </router-link>
         </MenuItem>
+        <!--
         <MenuItem name="3">
           <Icon type="ios-analytics"></Icon>
           导航三
@@ -22,6 +30,12 @@
           <Icon type="ios-paper"></Icon>
           导航四
         </MenuItem>
+        -->
+
+      </Col>
+      <!-- user -->
+      <Col span="2">
+        头像
       </Col>
     </Row>
   </Menu>

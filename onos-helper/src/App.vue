@@ -1,22 +1,35 @@
 <template>
   <div class="layout">
-    <LayoutCeiling></LayoutCeiling>
-    <LayoutHeader></LayoutHeader>
-    <div style="height: 200px"></div>
-    <LayoutFooter></LayoutFooter>
+
+    <!-- 吊顶 -->
+    <!-- <LayoutCeiling></LayoutCeiling> -->
+
+    <!-- 头部 -->
+    <layout-header></layout-header>
+
+    <!-- 主体 -->
+    <layout-content></layout-content>
+
+    <!-- 页脚 -->
+    <layout-footer></layout-footer>
+
   </div>
 </template>
 
 <script>
-import LayoutCeiling from './components/layout-ceiling'
-import LayoutHeader from './components/layout-header'
-import LayoutFooter from './components/layout-footer'
+import LayoutCeiling from '@/components/layout-ceiling'
+import LayoutHeader from '@/components/layout-header'
+import LayoutBreadcrunb from '@/components/layout-breadcrumb'
+import LayoutContent from '@/components/layout-content'
+import LayoutFooter from '@/components/layout-footer'
 
 export default {
   name: 'app',
   components: {
     LayoutCeiling,
     LayoutHeader,
+    LayoutBreadcrunb,
+    LayoutContent,
     LayoutFooter
   }
 }

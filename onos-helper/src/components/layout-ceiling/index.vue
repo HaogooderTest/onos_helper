@@ -1,10 +1,8 @@
 <template>
 <div class="layout-ceiling">
   <div class="layout-ceiling-menu">
-    <a href="#">111111</a> |
-    <a href="#">222222</a> |
-    <a href="#">333333</a> |
-    <a href="#">444444</a>
+    <a href="#">登陆</a> |
+    <a href="#">注册</a>
   </div>
 </div>
 </template>
@@ -21,7 +19,7 @@
   margin-right: 15px;
 }
 .layout-ceiling-menu a{
-  color: #000;
+  color: #ffffff;
 }
 </style>
 
