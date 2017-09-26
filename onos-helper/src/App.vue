@@ -19,7 +19,6 @@
 <script>
 import LayoutCeiling from '@/components/layout-ceiling'
 import LayoutHeader from '@/components/layout-header'
-import LayoutBreadcrunb from '@/components/layout-breadcrumb'
 import LayoutContent from '@/components/layout-content'
 import LayoutFooter from '@/components/layout-footer'
 
@@ -28,7 +27,6 @@ export default {
   components: {
     LayoutCeiling,
     LayoutHeader,
-    LayoutBreadcrunb,
     LayoutContent,
     LayoutFooter
   }
