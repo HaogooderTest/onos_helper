@@ -1,5 +1,5 @@
 <template>
-  <Cascader :data="data" v-model="value1"></Cascader>
+  <Cascader :data="all_onos_opera" v-model="selected_onos_opera"></Cascader>
 </template>
 
 <style scoped>
@@ -8,6 +8,9 @@
 
 <script>
 export default {
-  name: 'onos-sidebar'
+  name: 'onos-sidebar',
+  data: function(){
+    
+  }
 }
 </script>
