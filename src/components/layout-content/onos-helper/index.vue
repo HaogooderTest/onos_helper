@@ -3,15 +3,17 @@
     <!-- 标题 -->
     <p slot="title">ONOS小助手</p>
     <!-- 主体 -->
-    <Row>
-      <!-- 侧边导航 -->
-      <Col span="6">
-        <onos-sidebar></onos-sidebar>
-      </Col>
-      <Col span="18">
-      1
-      </Col>
-    </Row>
+    <div style="height:400px">
+      <Row>
+        <!-- 侧边导航 -->
+        <Col span="6">
+          <onos-sidebar></onos-sidebar>
+        </Col>
+        <Col span="18">
+        1
+        </Col>
+      </Row>
+    </div>
   </Card>
 </template>
 

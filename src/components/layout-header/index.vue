@@ -16,19 +16,27 @@
           </router-link>
         </MenuItem>
         <MenuItem name="2">
-          <router-link to="/dev-helper"  tag="div">
+          <Icon type="ios-paper"></Icon>
+          设备监控小助手
+        </MenuItem>
+        <MenuItem name="3">
+          <router-link to="/dev-helper" tag="div">
             <Icon type="ios-keypad"></Icon>
-            设备小助手
+            设备管理小助手
           </router-link>
         </MenuItem>
         <!--
         <MenuItem name="3">
           <Icon type="ios-analytics"></Icon>
-          导航三
+          发包抓包小助手
         </MenuItem>
         <MenuItem name="4">
           <Icon type="ios-paper"></Icon>
-          导航四
+          设备监控小助手
+        </MenuItem>
+        <MenuItem name="4">
+          <Icon type="ios-paper"></Icon>
+          可视化配置小助手
         </MenuItem>
         -->
 
@@ -39,7 +47,7 @@
       </Col>
     </Row>
   </Menu>
-<!-- 
+  <!-- 
   <Menu mode="horizontal" active-name="1">
     <div class="layout-assistant">
       <MenuItem name="1">二级导航</MenuItem>
