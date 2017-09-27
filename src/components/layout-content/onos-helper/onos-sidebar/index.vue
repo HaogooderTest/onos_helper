@@ -8,9 +8,6 @@
 
 <script>
 export default {
-  name: 'onos-sidebar',
-  data: function(){
-    
-  }
+  name: 'onos-sidebar'
 }
 </script>
