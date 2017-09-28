@@ -5,12 +5,20 @@
     <!-- 主体 -->
     <div style="height:400px">
       <Row>
-        <!-- 侧边导航 -->
+        <!-- 侧边 -->
         <Col span="6">
-          <onos-sidebar></onos-sidebar>
+          <!-- 选择操作 -->
+          <Row>
+            <onos-opera-selecter v-on:onosOperaChange="changeOpera"></onos-opera-selecter>
+          </Row>
+          <!-- 参数选择 -->
+          <Row>
+            <onos-params-selecter :currOnosOpera="currOnosOpera "></onos-params-selecter>
+          </Row>
         </Col>
+        <!-- 主体 -->
         <Col span="18">
-        1
+        {{ currOnosOpera }} 
         </Col>
       </Row>
     </div>
@@ -22,12 +30,24 @@
 </style>
 
 <script>
-import OnosSidebar from '@/components/layout-content/onos-helper/onos-sidebar'
+import onosOperaSelecter from '@/components/layout-content/onos-helper/onos-opera-selecter'
+import onosParamsSelecter from '@/components/layout-content/onos-helper/onos-params-selecter'
 
 export default {
   name: 'onos-helper',
+  data: function () {
+    return {
+      currOnosOpera: ''
+    }
+  },
   components: {
-    OnosSidebar
+    onosOperaSelecter,
+    onosParamsSelecter
+  },
+  methods: {
+    changeOpera: function (data) {
+      this.currOnosOpera = data
+    }
   }
 }
 </script>
