@@ -13,12 +13,12 @@
           </Row>
           <!-- 参数选择 -->
           <Row>
-            <onos-params-selecter :currOnosOpera="currOnosOpera "></onos-params-selecter>
+            <onos-params-selecter :currOnosOpera="currOpera"></onos-params-selecter>
           </Row>
         </Col>
         <!-- 主体 -->
         <Col span="18">
-        {{ currOnosOpera }} 
+        {{ currOpera }} 
         </Col>
       </Row>
     </div>
@@ -37,7 +37,7 @@ export default {
   name: 'onos-helper',
   data: function () {
     return {
-      currOnosOpera: ''
+      currOpera: ''
     }
   },
   components: {
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     changeOpera: function (data) {
-      this.currOnosOpera = data
+      this.currOpera = data
     }
   }
 }
