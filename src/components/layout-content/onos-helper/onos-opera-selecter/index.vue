@@ -36,7 +36,7 @@ export default {
     return {
       currOnosOpera: '',
       OnosDevOperaList: [
-        { value: 'dev-online', label: '设备上线' }
+        { value: 'devOnline', label: '设备上线' }
       ],
       OnosVrOperaList: [
         { value: 'createVr', label: '创建VR' }

@@ -11,6 +11,7 @@
           <Row>
             <onos-opera-selecter v-on:onosOperaChange="changeOpera"></onos-opera-selecter>
           </Row>
+          <br>
           <!-- 参数选择 -->
           <Row>
             <onos-params-selecter :currOnosOpera="currOpera"></onos-params-selecter>
@@ -18,7 +19,6 @@
         </Col>
         <!-- 主体 -->
         <Col span="18">
-        {{ currOpera }} 
         </Col>
       </Row>
     </div>
