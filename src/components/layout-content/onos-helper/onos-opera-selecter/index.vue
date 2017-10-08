@@ -1,7 +1,7 @@
 <template>
   <div>
     <Row>
-      <Col span="4" class="text-center-32">
+      <Col span="4" class="text-left">
         操作
       </Col>
       <Col span="20">
@@ -22,8 +22,18 @@
 </template>
 
 <style scoped>
-.text-center-32{
+.text-left{
+  text-align: left;
+  height: 32px;
+  line-height: 32px;
+}
+.text-center{
   text-align: center;
+  height: 32px;
+  line-height: 32px;
+}
+.text-right{
+  text-align: right;
   height: 32px;
   line-height: 32px;
 }

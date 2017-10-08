@@ -3,10 +3,10 @@
     <!-- 标题 -->
     <p slot="title">ONOS小助手</p>
     <!-- 主体 -->
-    <div style="height:400px">
+    <div style="min-height:400px">
       <Row>
         <!-- 侧边 -->
-        <Col span="6">
+        <Col span="8">
           <!-- 选择操作 -->
           <Row>
             <onos-opera-selecter v-on:onosOperaChange="changeOpera"></onos-opera-selecter>
@@ -18,7 +18,7 @@
           </Row>
         </Col>
         <!-- 主体 -->
-        <Col span="18">
+        <Col span="16">
         </Col>
       </Row>
     </div>
