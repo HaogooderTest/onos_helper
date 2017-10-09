@@ -6,7 +6,7 @@
       <Col span="20">
         <Input v-model="nodeIp">
           <span slot="prepend">http://</span>
-          <span slot="append">:8080/onos/v1/sangfor</span>
+          <span slot="append">:8181/onos/v1/sangfor</span>
         </Input>
       </Col>
     </Row>
@@ -35,9 +35,9 @@
       <Col span="4" class="text-left">动作</Col>
       <Col span="20">
         <Select v-model="action">
-          <Option value="post">POST</Option>
-          <Option value="get">GET</Option>
-          <Option value="delete">DELETE</Option>
+          <Option value="POST">POST</Option>
+          <Option value="GET">GET</Option>
+          <Option value="DELETE">DELETE</Option>
         </Select>
       </Col>
     </Row>
@@ -46,7 +46,7 @@
     <!-- 确定按钮 -->
     <Row>
       <Col span="24">
-        <Button type="primary" long>确定</Button>
+        <Button type="primary" long @click="clickOk">确定</Button>
       </Col>
     </Row>
 
@@ -82,6 +82,8 @@
 </style>
 
 <script>
+import $ from 'jquery'
+
 export default {
   name: 'onos-params-selecter',
   props: ['currOnosOpera'],
@@ -95,7 +97,9 @@ export default {
       nodeIp: '',
       urlSuffix: '',
       params: {},
-      action: ''
+      action: '',
+      user: 'karaf',
+      passwd: 'karaf'
     }
   },
   watch: {
@@ -119,6 +123,8 @@ export default {
     }
   },
   methods: {
+    // *** 内部计算使用方法 ***
+
     // 传入已选onos操作:opera,传入所有操作对应参数：data,获取已选onos操作相应的参数
     getParams: function (opera, data) {
       let operaParamObj = data[opera]
@@ -139,7 +145,7 @@ export default {
     },
     getUrl: function () {
       let rlt = ''
-      rlt = 'http://' + this.nodeIp + ':8080/onos/v1/sangfor' + this.urlSuffix
+      rlt = 'http://' + this.nodeIp + ':8181/onos/v1/sangfor' + this.urlSuffix
       return rlt
     },
     getCurl: function () {
@@ -151,6 +157,73 @@ export default {
         rlt = 'curl -w %{http_code}"\\n" -X ' + act + ' --header \'Content-Type:application/json\' --header \'Accept:application/json\' --user onos:rocks -d \'' + api + '\' \'' + url + '\' -s'
         return rlt
       }
+    },
+
+    // *** 事件使用方法 ***
+
+    // 点击事件方法
+    clickOk: function () {
+      let method = this.action
+      let url = this.urlStr
+      let body = this.apiBody
+      console.log('method:' + method + ',url:' + url + ',body:' + body)
+      $.ajax({
+        type: method,
+        url: url,
+        data: body,
+        async: true,
+        catch: false,
+        datatype: 'jsonp',
+        username: 'karaf',
+        password: 'karaf',
+        success: function (data) {
+          console.log(data)
+        }
+      })
+    },
+
+    // *** 发送请求 ***
+
+    // 创建xmlhttprequest对象
+    createXMLHttpRequest: function () {
+      let xmlhttp = null
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest()
+      }
+      if (xmlhttp !== null) {
+        return xmlhttp
+      } else {
+        console.log('Your browser does not support XMLHTTP.')
+        return null
+      }
+    },
+    // 使用XMLHttprequest对象进行发送请求
+    sendRequest: function (method, url, body, asyns, username, password) {
+      asyns = (asyns === undefined) ? 'true' : asyns
+      username = (username === undefined) ? this.user : username
+      password = (password === undefined) ? this.passwd : password
+
+      let xmlhttp = this.createXMLHttpRequest()
+      xmlhttp.open(method, url, asyns, username, password)
+      if (method === 'POST') {
+        xmlhttp.setRequestHeader('Content-type', 'application/json')
+        xmlhttp.setRequestHeader('Accept', 'application/json')
+      } else if (method === 'GET' || method === 'DELETE') {
+        body = 'null'
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        xmlhttp.setRequestHeader('Accept', 'application/json')
+      }
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === '1') console.log('1')
+        if (xmlhttp.readyState === '2') console.log('2')
+        if (xmlhttp.readyState === '3') console.log('3')
+        if (xmlhttp.readyState === '4') {
+          console.log('status:' + status)
+        }
+      }
+      console.log('method:' + method + ',url:' + url + ',body:' + body + ',asyns:' + asyns + ',user:' + username + ',pswd:' + password)
+      xmlhttp.send(body)
+      console.log('end')
     }
   }
 }
