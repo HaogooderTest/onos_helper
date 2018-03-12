@@ -82,7 +82,7 @@
 </style>
 
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 
 export default {
   name: 'onos-params-selecter',
@@ -159,27 +159,14 @@ export default {
       }
     },
 
-    // *** 事件使用方法 ***
+    // *** 事件方法 ***
 
-    // 点击事件方法
+    // 确定按钮点击事件方法
     clickOk: function () {
       let method = this.action
       let url = this.urlStr
       let body = this.apiBody
       console.log('method:' + method + ',url:' + url + ',body:' + body)
-      $.ajax({
-        type: method,
-        url: url,
-        data: body,
-        async: true,
-        catch: false,
-        datatype: 'jsonp',
-        username: 'karaf',
-        password: 'karaf',
-        success: function (data) {
-          console.log(data)
-        }
-      })
     },
 
     // *** 发送请求 ***
